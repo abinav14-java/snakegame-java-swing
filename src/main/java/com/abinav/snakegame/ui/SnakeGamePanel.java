@@ -49,7 +49,7 @@ public class SnakeGamePanel extends JPanel implements ActionListener, KeyListene
         startGame();
     }
 
-    public void startGame() {
+    private void startGame() {
         initSnake();
         newApple();
         running = true;
@@ -107,7 +107,7 @@ public class SnakeGamePanel extends JPanel implements ActionListener, KeyListene
         }
     }
 
-    public void move() {
+    private void move() {
         for (int i = bodyParts; i > 0; i--) {
             x[i] = x[i - 1];
             y[i] = y[i - 1];
@@ -168,7 +168,7 @@ public class SnakeGamePanel extends JPanel implements ActionListener, KeyListene
         } while (onSnake);
     }
 
-    public void checkApple() {
+    private void checkApple() {
         if ((x[0] == appleX) && (y[0] == appleY)) {
             bodyParts++;
             applesEaten++;
@@ -176,7 +176,7 @@ public class SnakeGamePanel extends JPanel implements ActionListener, KeyListene
         }
     }
 
-    public void checkCollisions() {
+    private void checkCollisions() {
         // Check if head collides with body
         for (int i = bodyParts; i > 0; i--) {
             if ((x[0] == x[i]) && (y[0] == y[i])) {
@@ -194,7 +194,7 @@ public class SnakeGamePanel extends JPanel implements ActionListener, KeyListene
         }
     }
 
-    public void drawScore(Graphics g) {
+    private void drawScore(Graphics g) {
         g.setColor(Color.WHITE);
         g.setFont(SCORE_FONT);
         FontMetrics metrics = getFontMetrics(g.getFont());
@@ -204,7 +204,7 @@ public class SnakeGamePanel extends JPanel implements ActionListener, KeyListene
                 g.getFont().getSize() + 10);
     }
 
-    public void gameOver(Graphics g) {
+    private void gameOver(Graphics g) {
         // Display Game Over text
         drawScore(g);
 
@@ -217,7 +217,7 @@ public class SnakeGamePanel extends JPanel implements ActionListener, KeyListene
 
     }
 
-    public void resetGame() {
+    private void resetGame() {
         applesEaten = 0;
         bodyParts = 3;
         direction = 'R';
